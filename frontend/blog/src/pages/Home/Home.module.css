@@ -1,0 +1,23 @@
+.upper_button{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+}
+
+.upper_button>button{
+   margin: 1% 3% 0.5% ;
+}
+
+
+.comment p {
+  margin: 0;
+}
+.comment_name {
+  font-weight: bold;
+  color: #333;
+}
+.comment_date {
+  color: #999;
+  font-size: 0.9em;
+}
