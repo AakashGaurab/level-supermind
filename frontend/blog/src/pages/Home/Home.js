@@ -27,7 +27,7 @@ function Home() {
 
   async function create(data){
      try {
-      let response = await fetch(`http://localhost:3500/blogs/${id}`,{
+      let response = await fetch(`http://65.0.106.33:3500/blogs/${id}`,{
         method:"POST",
         headers:{
           "Content-type":"application/json"
@@ -63,7 +63,7 @@ function Home() {
     get_data();
     async function get_data(){
       try {
-        let response = await fetch("http://localhost:3500/blogs");
+        let response = await fetch("http://65.0.106.33:3500/blogs");
         let final_response = await response.json()
         console.log(final_response);
         setBlogs(final_response);
@@ -83,7 +83,7 @@ function Home() {
   let get_comment=async(id)=>{                         //getting all comments related to particular blog
     setBlogid(id); 
     try {
-      let response = await fetch(`http://localhost:3500/comment/${id}`);
+      let response = await fetch(`http://65.0.106.33:3500/comment/${id}`);
       let final_response = await response.json();
       setComment(final_response); 
     } catch (error) {
@@ -105,7 +105,7 @@ function Home() {
 
   async function post_comment(data){                         //posting comment to backend
     try {
-      let response = await fetch(`http://localhost:3500/comment/${id}/${blogid}`,{
+      let response = await fetch(`http://65.0.106.33:3500/comment/${id}/${blogid}`,{
         method:"POST",
         headers:{
           "Content-type":"application/json"

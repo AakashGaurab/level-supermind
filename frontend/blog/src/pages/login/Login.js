@@ -19,7 +19,7 @@ function Login() {
 
     async function fetch_login(data){
         try {
-            let response = await fetch("http://localhost:3500/user/login",{
+            let response = await fetch("http://65.0.106.33:3500/user/login",{
                 method:"POST",
                 headers:{
                     "Content-type":"application/json",
