@@ -65,6 +65,7 @@ function Home() {
       try {
         let response = await fetch("http://localhost:3500/blogs");
         let final_response = await response.json()
+        console.log(final_response);
         setBlogs(final_response);
       } catch (error) {
         Swal.fire({

@@ -2,9 +2,9 @@ const express = require("express");
 const comment = express.Router();
 const {comments} = require("../models");
 const db = require("../models");
+const {auth} = require("../middleware/authenticate");
 
-
-comment.post("/:userId/:blogId",async(req,res)=>{
+comment.post("/:userId/:blogId",auth,async(req,res)=>{
     let userid = req.params.userId;
     let blogid = req.params.blogId;
     let {content} = req.body;
@@ -16,7 +16,7 @@ comment.post("/:userId/:blogId",async(req,res)=>{
     }
 })
 
-comment.get("/",async(req,res)=>{
+comment.get("/",auth,async(req,res)=>{
     try {
         let [results,metadata] = await db.sequelize.query(`select * from comments`);
         res.json(results);
@@ -25,7 +25,7 @@ comment.get("/",async(req,res)=>{
     }
 })
 
-comment.get("/:id",async(req,res)=>{
+comment.get("/:id",auth,async(req,res)=>{
     let id = req.params.id;
     try {
         let [results,metadata] = await db.sequelize.query(`select u.name,c.id,c.content,c.createdAt from comments as c join users as u where u.id = c.userid and blogid = ${id} order by createdAt desc`);
@@ -39,7 +39,7 @@ comment.patch("/:id",(req,res)=>{
 
 })
 
-comment.delete("/:id",async(req,res)=>{
+comment.delete("/:id",auth,async(req,res)=>{
     let id = req.params.id;
     try {
         let [results,metadata] = await db.sequelize.query(`delete from comments where id = '${id}'`);

@@ -2,8 +2,9 @@ const express = require("express");
 const blog = express.Router();
 const {blogs} = require("../models");
 const db = require("../models");
+const {auth} = require("../middleware/authenticate");
 
-blog.post("/:userId",async(req,res)=>{
+blog.post("/:userId",auth,async(req,res)=>{
   let userId = req.params.userId;
   let{title,content} = req.body;
    try {
@@ -14,7 +15,7 @@ blog.post("/:userId",async(req,res)=>{
    }
 })
 
-blog.get("/",async(req,res)=>{
+blog.get("/",auth,async(req,res)=>{
    try {
     let [results,metadata] = await db.sequelize.query(`select u.name,b.title,b.id,b.content,b.createdAt from blogs as b join users as u where b.userid = u.id`);
     res.json(results);
@@ -23,7 +24,7 @@ blog.get("/",async(req,res)=>{
    }
 })
 
-blog.get("/:id",async(req,res)=>{
+blog.get("/:id",auth,async(req,res)=>{
    let id = req.params.id;
    try {
     let [results,metadata] = await db.sequelize.query(`select * from blogs where id = "${id}"`);
@@ -44,7 +45,7 @@ blog.patch("/:id",async(req,res)=>{
     }
 })
 
-blog.delete("/:id",async(req,res)=>{
+blog.delete("/:id",auth,async(req,res)=>{
     let id = req.params.id;
    try {
     let [results,metadata] = await db.sequelize.query(`delete from blogs where id = "${id}"`);
@@ -54,12 +55,6 @@ blog.delete("/:id",async(req,res)=>{
     res.json(error);
    }
 })
-
-
-
-
-
-
 
 
 
