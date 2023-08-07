@@ -3,8 +3,9 @@ const cors = require("cors");
 const app = express();
 const db = require("./models");
 require("dotenv").config();
+const cookieParser = require("cookie-parser");
 
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors({"origin":"*"}));
 
@@ -27,10 +28,10 @@ app.use("/comment",comment)
 
 
 
-app.listen(process.env.port,async()=>{
+app.listen(3500,async()=>{
     try {
         await db.sequelize.sync();
-        console.log(`Server running at http://localhost:${process.env.port}`)
+        console.log(`Server running at http://localhost:3500`)
     } catch (error) {
        console.log(error);        
     }
