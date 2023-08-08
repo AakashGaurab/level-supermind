@@ -10,6 +10,7 @@
 - Postman
 - AWS EC2 Instance link
 [http://65.0.106.33:3500/](http://65.0.106.33:3500/)
+- Deployed Link : [http://65.0.106.33:3000/](http://65.0.106.33:3000/)
 
 # blogifybackend repo link
 [https://github.com/AakashGaurab/level-supermind](https://github.com/AakashGaurab/level-supermind)
