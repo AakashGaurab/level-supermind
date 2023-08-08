@@ -65,110 +65,29 @@ Posts Routes
 POST /blogs/:userId
 
 
-Get All posts
-GET /post/api/posts
-
-               
+# Get All posts
+GET /blogs
 
 Edit Post
-PATCH /post/api/post/:id
+PATCH /blog/:id
 
-Protected route
 
-                  Request:{
-                      // data we need to update
-                      }
-
-                  Response:{
-                       "message": "Post updated successfully",
-                  "post": {
-                      "id": 1,
-                      "title": "Updated post title",
-                      "content": "The spring bloom is a strong increase in phytoplankton abundance (i.e. stock) that typically occurs in the early spring and lasts until late spring or early summer. This seasonal event is characteristic of temperate North Atlantic, sub-polar, and coastal waters.",
-                      "createdAt": "2023-08-04T16:06:49.000Z",
-                      "userId": 11,
-                      "updatedAt": "2023-08-05T05:10:52.000Z"
-                  }
-                  }
 Delete post
-DELETE /post/api/post/:id
+DELETE /blog/:id
 
-Protected route
 
-                  Response:{
-                      "message": "Post deleted successfully"
-                  }
-Comments Route
-Create comment
-POST /comment/api/comments
+# Comments Route
+- Create comment
+POST /comment/:userId/:blogId
 
-Protected route
 
                   Request:{
-                      "postId":4,
                       "comment":"have a momment"
                   }
 
 
-                  Response:{
-                          "message": "Comment created successfully",
-                          "comment": {
-                              "createdAt": "2023-08-05T07:51:07.411Z",
-                              "id": 1,
-                              "comment": "have a momment",
-                              "postId": 4,
-                              "userId": 12,
-                              "updatedAt": "2023-08-05T07:51:07.412Z"
-                              }
-                          }
-Get All comments by Post
-GET comment//api/commentsonpost/:postId
-
-                   Response:{
-                          "message": "All comments for the post",
-                          "comments": [
-                              {
-                                  "id": 1,
-                                  "comment": "have a momment",
-                                  "createdAt": "2023-08-05T07:51:07.000Z",
-                                  "userId": 12,
-                                  "postId": 4,
-                                  "updatedAt": "2023-08-05T07:51:07.000Z"
-                              }
-                          ]
-                      }
-Get comment by id
-GET comment/api/comments/:commentId
-
-                      Response:{
+                  Response: "Comment added"
                           
-                          "message": "Comment found",
-                          "comment": {
-                              "id": 1,
-                              "comment": "have a momment",
-                              "createdAt": "2023-08-05T07:51:07.000Z",
-                              "userId": 12,
-                              "postId": 4,
-                              "updatedAt": "2023-08-05T07:51:07.000Z"
-                          }
-                      }
-Update the comment
-PUT comment/api/comments/:commentId
+Get All comments by Post
+GET comment/:blogid
 
-                          Response:{
-                                  "message": "Comment updated successfully",
-                                  "UpdatedCommetn": {
-                                      "id": 1,
-                                      "comment": "updated comment",
-                                      "createdAt": "2023-08-05T07:51:07.000Z",
-                                      "userId": 12,
-                                      "postId": 4,
-                                      "updatedAt": "2023-08-05T08:09:03.000Z"
-                                  }
-                          }
-Delete the comment
-DELETE comment/api/comments/:commentId
-
-                          Response:{
-                              "message": "Comment deleted successfully"
-                          }
