@@ -5,9 +5,10 @@ const db = require("./models");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 
-app.use(cookieParser());
+
 app.use(express.json());
 app.use(cors({"origin":"*"}));
+app.use(cookieParser());
 
 
 const {user} = require("./routes/user");
