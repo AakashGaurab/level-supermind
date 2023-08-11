@@ -27,7 +27,7 @@ blog.get("/",auth,async(req,res)=>{
 blog.get("/:id",auth,async(req,res)=>{
    let id = req.params.id;
    try {
-    let [results,metadata] = await db.sequelize.query(`select * from blogs where id = "${id}"`);
+    let [results,metadata] = await db.sequelize.query(`select * from blogs where userid = "${id}"`);
     res.json(results);
    } catch (error) {
     res.json(error);

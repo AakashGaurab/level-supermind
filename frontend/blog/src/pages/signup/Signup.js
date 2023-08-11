@@ -20,7 +20,7 @@ function Signup() {
 
     async function fetch_signup(data){
         try {
-            let response = await fetch("http://65.0.106.33:3500/user/signup",{
+            let response = await fetch("http://level-supermind-431007708.ap-south-1.elb.amazonaws.com:3500/user/signup",{
                 method:"POST",
                 headers:{
                     "Content-type":"application/json",

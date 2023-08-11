@@ -15,7 +15,7 @@ function IndPost() {
     get_data();
     async function get_data(){
       try {
-        let response = await fetch(`http://65.0.106.33:3500/blogs/${id}`);
+        let response = await fetch(`http://level-supermind-431007708.ap-south-1.elb.amazonaws.com:3500/blogs/${id}`);
         let final_response = await response.json()
         setBlogs(final_response);
       } catch (error) {
@@ -30,7 +30,7 @@ function IndPost() {
 
   let delete_post = async(id)=>{
     try {
-        let response = await fetch(`http://65.0.106.33:3500/blogs/${id}`,{
+        let response = await fetch(`http://level-supermind-431007708.ap-south-1.elb.amazonaws.com:3500/blogs/${id}`,{
             method:"DELETE"
         })
 
