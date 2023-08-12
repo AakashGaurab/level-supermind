@@ -9,8 +9,8 @@
 - GitHub
 - Postman
 - AWS EC2 Instance link
-[http://65.0.106.33:3500/](http://65.0.106.33:3500/)
-- Deployed Link : [http://65.0.106.33:3000/](http://65.0.106.33:3000/)
+[http://level-supermind-431007708.ap-south-1.elb.amazonaws.com:3500/](http://level-supermind-431007708.ap-south-1.elb.amazonaws.com:3500/)
+- Deployed Link : [http://levelsupermind.s3-website.ap-south-1.amazonaws.com/]([http://65.0.106.33:3000/](http://levelsupermind.s3-website.ap-south-1.amazonaws.com/))
 
 # blogifybackend repo link
 [https://github.com/AakashGaurab/level-supermind](https://github.com/AakashGaurab/level-supermind)
